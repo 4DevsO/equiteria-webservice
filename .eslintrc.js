@@ -13,6 +13,8 @@ module.exports = {
     ecmaVersion: 2018
   },
   rules: {
-    camelcase: 0
+    camelcase: 0,
+    semi: ["error", "always"],
+    quotes: ["error", "single"]
   }
 };
