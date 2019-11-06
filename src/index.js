@@ -1,9 +1,11 @@
+const path = require("path");
 const express = require("express");
 const helmet = require("helmet");
 const compression = require("compression");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const firebase = require("firebase");
 
 const { catchAll, notFound } = require("./middlewares/error");
 
@@ -17,6 +19,12 @@ mongoose.connect(process.env.MONGODB_URL, {
   useFindAndModify: false,
   useUnifiedTopology: true
 });
+
+firebase.initializeApp(
+  require(path.resolve(__dirname, "config", "firebase_config.json"))
+);
+
+firebase.analytics();
 
 const app = express();
 
