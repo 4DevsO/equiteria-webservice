@@ -29,5 +29,13 @@
     "helmet": "^3.21.2",
     "mongoose": "^5.7.8",
     "nodemon": "^1.19.4"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
   }
 }
