@@ -1,16 +1,16 @@
 const express = require('express');
 const route = express.Router();
 
-const PinRoute = require('./pin');
+const OilSpotRoute = require('./oilSpotController');
 
 route.get('/', (req, res) => {
   res.json({ success: true });
 });
 
-route.get('/pin', PinRoute.list);
-route.get('/pin/:pinId', PinRoute.index);
-route.post('/pin', PinRoute.store);
-route.put('/pin/:pinId', PinRoute.update);
-route.delete('/pin/:pinId', PinRoute.delete);
+route.get('/oilSpot', OilSpotRoute.list);
+route.get('/oilSpot/:oilSpotId', OilSpotRoute.index);
+route.post('/oilSpot', OilSpotRoute.store);
+route.put('/oilSpot/:oilSpotId', OilSpotRoute.update);
+route.delete('/oilSpot/:oilSpotId', OilSpotRoute.delete);
 
 module.exports = route;

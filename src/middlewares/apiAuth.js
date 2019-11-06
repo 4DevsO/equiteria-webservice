@@ -1,4 +1,4 @@
-export default () => async (req, res, next) => {
+module.exports = () => async (req, res, next) => {
   const authHeader = req.headers.apikey;
 
   if (!authHeader) {

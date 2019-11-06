@@ -11,13 +11,23 @@ const { catchAll, notFound } = require('./middlewares/error');
 // set env variables from .env
 dotenv.config();
 
+mongoose.set('useCreateIndex', true);
 // connect to mongodb
-mongoose.connect(process.env.MONGODB_URL, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-  useUnifiedTopology: true
+try {
+  mongoose.connect(process.env.MONGODB_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  });
+} catch (e) {
+  console.error(e.message);
+}
+mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
+mongoose.connection.on('error', err => {
+  console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
 });
+
+// import all of our models
+require('./models/OilSpot');
 
 const app = express();
 

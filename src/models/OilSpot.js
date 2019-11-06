@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 
-const PinSchema = new mongoose.Schema(
+const OilSpotSchema = new mongoose.Schema(
   {
-    colect_date: { type: Date, required: true },
+    __id: { type: String, required: true, index: true },
+    collect_date: { type: Date, required: true },
     active: { type: Boolean, default: true },
     location: {
       type: {
@@ -14,11 +15,17 @@ const PinSchema = new mongoose.Schema(
         type: [Number],
         required: true
       }
-    }
+    },
+    photos: [
+      {
+        key: String,
+        name: String
+      }
+    ]
   },
   {
     timestamps: true
   }
 );
 
-module.exports = mongoose.model('Pin', PinSchema);
+module.exports = mongoose.model('OilSpot', OilSpotSchema);
