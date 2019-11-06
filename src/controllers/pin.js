@@ -1,10 +1,18 @@
 const PinModel = require("../models/Pin");
 
 module.exports = {
-  index: async (req, res) => {
+  list: async (req, res) => {
     const pins = await PinModel.find({});
 
     res.json({ success: true, data: pins });
+  },
+
+  index: async (req, res) => {
+    const { pinId } = req.params;
+
+    const pin = await PinModel.findById(pinId);
+
+    res.json({ success: true, data: pin });
   },
 
   store: async (req, res) => {
