@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const OilSpotSchema = new mongoose.Schema(
   {
     __id: { type: String, required: true, index: true },
+    user_id: { type: mongoose.Schema.Types.String, ref: 'User' },
     collect_date: { type: Date, required: true },
     active: { type: Boolean, default: true },
     location: {
@@ -16,6 +17,7 @@ const OilSpotSchema = new mongoose.Schema(
         required: true
       }
     },
+    tags: [String],
     photos: [
       {
         key: String,

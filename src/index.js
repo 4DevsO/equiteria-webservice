@@ -13,14 +13,11 @@ dotenv.config();
 
 mongoose.set('useCreateIndex', true);
 // connect to mongodb
-try {
-  mongoose.connect(process.env.MONGODB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  });
-} catch (e) {
-  console.error(e.message);
-}
+
+mongoose.connect(process.env.MONGODB_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
 mongoose.connection.on('error', err => {
   console.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
@@ -28,6 +25,7 @@ mongoose.connection.on('error', err => {
 
 // import all of our models
 require('./models/OilSpot');
+require('./models/User');
 
 const app = express();
 
@@ -39,7 +37,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // add routes
-app.use('/api/v1', apiAuth(), require('./controllers'));
+app.use('/api/v1', apiAuth(), require('./routes'));
 
 // add errors middlewares
 app.use(notFound);

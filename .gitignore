@@ -61,3 +61,5 @@ typings/
 .next
 
 firebase_config.json
+
+tmp/uploads/*

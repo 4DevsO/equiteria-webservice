@@ -1,40 +1,41 @@
 const mongoose = require('mongoose');
 const OilSpotModel = mongoose.model('OilSpot');
 
+const { newSpotReport, spotUpdated, newSpotPhoto } = require('../services/oilSpotService');
+
 module.exports = {
   list: async (req, res) => {
     const spots = await OilSpotModel.find({});
 
-    res.json({ success: true, data: spots });
+    return res.json({ success: true, data: spots });
   },
 
   index: async (req, res) => {
     const { spotId } = req.params;
 
-    const spot = await OilSpotModel.findById(spotId);
+    const spot = await OilSpotModel.findOne({ __id: spotId });
 
-    res.json({ success: true, data: spot });
+    return res.json({ success: true, data: spot });
   },
 
   store: async (req, res) => {
-    const {
-      __id,
-      collect_date,
-      location: { latitude, longitude },
-      photos
-    } = req.body;
-
-    const spotLocation = { type: 'Point', coordinates: [longitude, latitude] };
+    const OilSpot = { ...req.body };
 
     try {
-      const createdSpot = await OilSpotModel.create({
-        __id,
-        collect_date,
-        location: spotLocation,
-        photos
-      });
-      console.log(createdSpot);
-      res.json({ success: true, data: createdSpot });
+      const createdSpot = await newSpotReport(OilSpot);
+      return res.json({ success: true, data: createdSpot });
+    } catch (e) {
+      res.status(400).json({ success: false, message: e.message });
+      console.error(e.message);
+    }
+  },
+
+  storePhoto: async (req, res) => {
+    const fileInfo = { ...req.file };
+
+    try {
+      const imageStored = await newSpotPhoto(fileInfo);
+      return res.json({ success: true, data: imageStored });
     } catch (e) {
       res.status(400).json({ success: false, message: e.message });
       console.error(e.message);
@@ -42,23 +43,22 @@ module.exports = {
   },
 
   update: async (req, res) => {
-    const { active } = req.body;
+    const spot = { ...req.body };
     const { spotId } = req.params;
 
-    const updatedSpot = await OilSpotModel.findByIdAndUpdate(
-      spotId,
-      { active },
-      { new: true }
-    );
-
-    res.json({ success: true, data: updatedSpot });
+    try {
+      const updatedSpot = await spotUpdated(spotId, spot);
+      return res.json({ success: true, data: updatedSpot });
+    } catch (e) {
+      return res.json({ success: false, message: e.message });
+    }
   },
 
   delete: async (req, res) => {
     const { spotId } = req.params;
 
-    await OilSpotModel.findByIdAndDelete(spotId);
+    await OilSpotModel.findOneAndDelete({ __id: spotId });
 
-    res.json({ success: true });
+    return res.json({ success: true });
   }
 };
