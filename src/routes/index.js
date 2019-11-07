@@ -13,7 +13,7 @@ route.get('/', (req, res) => {
 route.get('/oilSpot', OilSpotRoute.list);
 route.get('/oilSpot/:oilSpotId', OilSpotRoute.index);
 route.post('/oilSpot', OilSpotRoute.store);
-route.post('/oilSpotPhoto', multerImg.single('img'), OilSpotRoute.storePhoto);
+route.post('/oilSpotPhoto', multerImg.array('img'), OilSpotRoute.storePhoto);
 route.put('/oilSpot/:oilSpotId', OilSpotRoute.update);
 route.delete('/oilSpot/:oilSpotId', OilSpotRoute.delete);
 

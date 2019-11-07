@@ -25,7 +25,6 @@ const multerConfig = {
     fileSize: 10 * 1024 * 1024
   },
   fileFilter: (req, file, cb) => {
-    console.log(file.mimetype);
     if (file.mimetype !== ' image/png' && file.mimetype !== 'image/jpeg') {
       return cb(new Error('Only images are allowed'));
     }

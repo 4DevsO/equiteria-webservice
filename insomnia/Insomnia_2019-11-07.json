@@ -1,0 +1,231 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2019-11-07T19:19:31.785Z",
+  "__export_source": "insomnia.desktop.app:v7.0.3",
+  "resources": [
+    {
+      "_id": "req_6a5c0df40bf34c18bb0e0c67df72be5a",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"user_id\": \"+5573991693479\",\n\t\"email\": \"pedrecalc@gmail.com\",\n\t\"name\": \"Alexandre Pedrecal\"\n}"
+      },
+      "created": 1573064659980,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_2ed55ff221864e729ad264125c33c899",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "disabled": false,
+          "id": "pair_5ff9580d2aaf4be2bc9889192707be5f",
+          "name": "apikey",
+          "value": "wubalubdubdub"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1573064659980,
+      "method": "POST",
+      "modified": 1573072032938,
+      "name": "User",
+      "parameters": [],
+      "parentId": "wrk_f0f8d9c3ebb445a48244e0c34672288a",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "localhost:3000/api/v1/user",
+      "_type": "request"
+    },
+    {
+      "_id": "wrk_f0f8d9c3ebb445a48244e0c34672288a",
+      "created": 1573065998056,
+      "description": "",
+      "modified": 1573065998056,
+      "name": "e-quiteria",
+      "parentId": null,
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_9b93d1e5dd95427fb96963d0811ce73e",
+      "authentication": {},
+      "body": { "mimeType": "application/json", "text": "" },
+      "created": 1573069692528,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_2ed55ff221864e729ad264125c33c899",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "disabled": false,
+          "id": "pair_5ff9580d2aaf4be2bc9889192707be5f",
+          "name": "apikey",
+          "value": "wubalubdubdub"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1573059784616.5,
+      "method": "GET",
+      "modified": 1573069738807,
+      "name": "User",
+      "parameters": [],
+      "parentId": "wrk_f0f8d9c3ebb445a48244e0c34672288a",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "localhost:3000/api/v1/user/+5573991693479",
+      "_type": "request"
+    },
+    {
+      "_id": "req_27e1dd8fd23244cdb3fa8edb5260171a",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"__id\": \"idTeste\",\n\t\"user_id\": \"+557391693479\",\n\t\"location\": {\n\t\t\"latitude\": 37.7510,\n\t\t\"longitude\": -97.8220\n\t},\n\t\"collect_date\": \"Wed Nov 06 2019 12:54:04 GMT-0300 (Brasilia Standard Time)\",\n\t\"tags\": [\n\t\t\"praia\",\n\t\t\"teste1\"\n\t],\n\t\"photos\": [\"f9746b03aace433e97375282fbc4e03a\"]\n}"
+      },
+      "created": 1573054909253,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_7375d27ae12340ca8cc6c54940f972e9",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "id": "pair_82aa02df1f9744b5ac86f627db3a2634",
+          "name": "apikey",
+          "value": "wubalubdubdub"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1573054909253,
+      "method": "POST",
+      "modified": 1573152907374,
+      "name": "OilSpot",
+      "parameters": [],
+      "parentId": "wrk_f0f8d9c3ebb445a48244e0c34672288a",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "localhost:3000/api/v1/oilSpot",
+      "_type": "request"
+    },
+    {
+      "_id": "req_a10780c0cb9440e9b560b70b6509844d",
+      "authentication": {},
+      "body": { "mimeType": "application/json", "text": "" },
+      "created": 1573154254149,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_7375d27ae12340ca8cc6c54940f972e9",
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "id": "pair_82aa02df1f9744b5ac86f627db3a2634",
+          "name": "apikey",
+          "value": "wubalubdubdub"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1572885606565.5,
+      "method": "GET",
+      "modified": 1573154353134,
+      "name": "OilSpot",
+      "parameters": [],
+      "parentId": "wrk_f0f8d9c3ebb445a48244e0c34672288a",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "localhost:3000/api/v1/oilSpot/idTeste",
+      "_type": "request"
+    },
+    {
+      "_id": "req_bb2b134d7c314bebb4705f6c3ffc7bd2",
+      "authentication": {},
+      "body": {
+        "mimeType": "multipart/form-data",
+        "params": [
+          {
+            "fileName": "/home/pedrecal/Pictures/teste/xtonel-praia-sergipe-1.jpg.pagespeed.ic.8dVy8DYG71.jpg",
+            "id": "pair_35975065b19948dbb470fbcf41484dbd",
+            "name": "img",
+            "type": "file",
+            "value": ""
+          },
+          {
+            "disabled": false,
+            "fileName": "/home/pedrecal/Pictures/teste/xTartaruga-com-oleo.JPG.pagespeed.ic.rgMSQRMILt.jpg",
+            "id": "pair_ff6128c394fa4b3c96dc95dabfdf1c91",
+            "name": "img",
+            "type": "file",
+            "value": ""
+          }
+        ]
+      },
+      "created": 1573072621487,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_7375d27ae12340ca8cc6c54940f972e9",
+          "name": "Content-Type",
+          "value": "multipart/form-data"
+        },
+        {
+          "id": "pair_82aa02df1f9744b5ac86f627db3a2634",
+          "name": "apikey",
+          "value": "wubalubdubdub"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1572716303878,
+      "method": "POST",
+      "modified": 1573151198207,
+      "name": "OilSpotPhoto",
+      "parameters": [],
+      "parentId": "wrk_f0f8d9c3ebb445a48244e0c34672288a",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "localhost:3000/api/v1/oilSpotPhoto",
+      "_type": "request"
+    },
+    {
+      "_id": "env_0266b1af78f013296502b5274cbf08d82b19c566",
+      "color": null,
+      "created": 1573065998079,
+      "data": {},
+      "dataPropertyOrder": null,
+      "isPrivate": false,
+      "metaSortKey": 1573065998079,
+      "modified": 1573065998079,
+      "name": "Base Environment",
+      "parentId": "wrk_f0f8d9c3ebb445a48244e0c34672288a",
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_0266b1af78f013296502b5274cbf08d82b19c566",
+      "cookies": [],
+      "created": 1573065998081,
+      "modified": 1573065998081,
+      "name": "Default Jar",
+      "parentId": "wrk_f0f8d9c3ebb445a48244e0c34672288a",
+      "_type": "cookie_jar"
+    }
+  ]
+}

@@ -35,10 +35,10 @@ module.exports = {
     }
   },
 
-  newSpotPhoto: async (imageData) => {
+  newSpotPhoto: async (imagesData) => {
     try {
-      compressImage(imageData);
-      return imageData.filename;
+      const imagesName = compressImage(imagesData);
+      return imagesName;
     } catch (e) {
       console.error(e);
       throw e;

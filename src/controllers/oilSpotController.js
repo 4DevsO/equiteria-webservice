@@ -11,9 +11,9 @@ module.exports = {
   },
 
   index: async (req, res) => {
-    const { spotId } = req.params;
+    const { oilSpotId } = req.params;
 
-    const spot = await OilSpotModel.findOne({ __id: spotId });
+    const spot = await OilSpotModel.findOne({ __id: oilSpotId });
 
     return res.json({ success: true, data: spot });
   },
@@ -31,10 +31,9 @@ module.exports = {
   },
 
   storePhoto: async (req, res) => {
-    const fileInfo = { ...req.file };
-
+    const imagesData = { ...req.files };
     try {
-      const imageStored = await newSpotPhoto(fileInfo);
+      const imageStored = await newSpotPhoto(imagesData);
       return res.json({ success: true, data: imageStored });
     } catch (e) {
       res.status(400).json({ success: false, message: e.message });

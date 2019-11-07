@@ -18,12 +18,7 @@ const OilSpotSchema = new mongoose.Schema(
       }
     },
     tags: [String],
-    photos: [
-      {
-        key: String,
-        name: String
-      }
-    ]
+    photos: [String]
   },
   {
     timestamps: true
