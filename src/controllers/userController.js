@@ -32,11 +32,11 @@ module.exports = {
 
   update: async (req, res) => {
     const user = { ...req.body };
-    const { user_id } = req.params;
+    const { userId } = req.params;
 
     try {
-      await updateUser(user_id, user);
-      return res.status(200).json({ success: true });
+      const updatedUser = await updateUser(userId, user);
+      return res.status(200).json({ success: true, data: updatedUser });
     } catch (e) {
       console.error(e);
       return res.status(400).json({ success: false, message: e.message });
@@ -46,7 +46,7 @@ module.exports = {
   delete: async (req, res) => {
     const { spotId } = req.params;
 
-    await UserModel.findOneAndDelete({ __id: spotId });
+    await UserModel.findOneAndRemove({ spot_id: spotId });
 
     return res.json({ success: true });
   }

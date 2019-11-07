@@ -30,20 +30,21 @@ module.exports = {
     }
   },
 
-  updateUser: async (user_id, user) => {
-    const userFound = User.findOne({ user_id });
-    if (!userFound) {
-      throw new ValidationException('User not found');
+  updateUser: async (userId, user) => {
+    const { user_id } = user;
+    console.log(user_id);
+    if (user_id && user_id !== userId) {
+      throw new Error(`You can't change the id`);
     }
 
-    const updatedUser = Object.assign(user, userFound);
-
     try {
-    // Save new user to mongo
-      await updatedUser.save();
-      return true;
+      const updatedUser = await User.findOneAndUpdate({ user_id: userId }, user, { new: true });
+      if (!updatedUser) {
+        throw new Error(`User not found`);
+      }
+      return updatedUser;
     } catch (e) {
-      console.error(e.message);
+      console.error(e);
       throw e;
     }
   }

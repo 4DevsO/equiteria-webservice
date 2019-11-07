@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const OilSpotModel = mongoose.model('OilSpot');
 
-const { newSpotReport, spotUpdated, newSpotPhoto } = require('../services/oilSpotService');
+const { newSpotReport, updateSpot, newSpotPhoto } = require('../services/oilSpotService');
 
 module.exports = {
   list: async (req, res) => {
@@ -13,7 +13,7 @@ module.exports = {
   index: async (req, res) => {
     const { oilSpotId } = req.params;
 
-    const spot = await OilSpotModel.findOne({ __id: oilSpotId });
+    const spot = await OilSpotModel.findOne({ spot_id: oilSpotId });
 
     return res.json({ success: true, data: spot });
   },
@@ -43,20 +43,21 @@ module.exports = {
 
   update: async (req, res) => {
     const spot = { ...req.body };
-    const { spotId } = req.params;
+    const { oilSpotId } = req.params;
 
     try {
-      const updatedSpot = await spotUpdated(spotId, spot);
+      const updatedSpot = await updateSpot(oilSpotId, spot);
       return res.json({ success: true, data: updatedSpot });
     } catch (e) {
+      console.error(e);
       return res.json({ success: false, message: e.message });
     }
   },
 
   delete: async (req, res) => {
-    const { spotId } = req.params;
+    const { oilSpotId } = req.params;
 
-    await OilSpotModel.findOneAndDelete({ __id: spotId });
+    await OilSpotModel.findOneAndRemove({ spot_id: oilSpotId });
 
     return res.json({ success: true });
   }

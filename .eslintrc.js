@@ -15,6 +15,6 @@ module.exports = {
   rules: {
     camelcase: 0,
     semi: ["error", "always"],
-    quotes: ["error", "single"]
+    quotes: ["error", "single", { "allowTemplateLiterals": true }]
   }
 };
