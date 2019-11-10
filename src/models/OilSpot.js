@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const OilSpotSchema = new mongoose.Schema(
   {
     spot_id: { type: String, required: true, index: true },
-    user_id: { type: mongoose.Schema.Types.String, ref: 'User' },
+    user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     collect_date: { type: Date, required: true },
     active: { type: Boolean, default: true },
     location: {

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema(
   {
-    user_id: {
+    phone_number: {
       type: String,
       required: true,
       trim: true,
@@ -13,7 +13,6 @@ const UserSchema = new mongoose.Schema(
       unique: true,
       lowercase: true,
       trim: true,
-      required: true,
       max: 128,
       min: 6
     },
