@@ -46,9 +46,13 @@ module.exports = {
   delete: async (req, res) => {
     const { spotId } = req.params;
 
-    await UserModel.findOneAndRemove({ spot_id: spotId });
-
-    return res.json({ success: true });
+    try {
+      await UserModel.findOneAndRemove({ spot_id: spotId });
+      return res.json({ success: true });
+    } catch (e) {
+      console.error(e);
+      return res.json({ success: false });
+    }
   }
 }
 ;

@@ -57,8 +57,12 @@ module.exports = {
   delete: async (req, res) => {
     const { oilSpotId } = req.params;
 
-    await OilSpotModel.findOneAndRemove({ spot_id: oilSpotId });
-
-    return res.json({ success: true });
+    try {
+      await OilSpotModel.findOneAndRemove({ spot_id: oilSpotId });
+      return res.json({ success: true });
+    } catch (e) {
+      console.error(e);
+      return res.json({ success: false });
+    }
   }
 };
