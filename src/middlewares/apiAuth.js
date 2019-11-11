@@ -5,7 +5,7 @@ module.exports = () => async (req, res, next) => {
     return res.status(403).send({ error: 'No API Key provided' });
   }
 
-  if (authHeader !== process.env.API_KEY) {
+  if (authHeader !== process.env.EQUITERIA_API_KEY) {
     return res
       .status(403)
       .send({ error: 'Check if your API Key is correctly typed' });

@@ -9,7 +9,7 @@ const apiAuth = require('./middlewares/apiAuth');
 const { catchAll, notFound } = require('./middlewares/error');
 
 // set env variables from .env
-dotenv.config();
+dotenv.config({ path: `${__dirname}/../.env` });
 
 mongoose.set('useCreateIndex', true);
 // connect to mongodb
