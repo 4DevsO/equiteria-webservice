@@ -15,6 +15,8 @@ module.exports = {
       collect_date,
       location: { latitude, longitude },
       tags,
+      description,
+      other_description,
       photos
     } = spot;
 
@@ -27,6 +29,8 @@ module.exports = {
         collect_date,
         location: spotLocation,
         tags,
+        description,
+        other_description,
         photos
       });
       await createdSpot.save();
@@ -48,6 +52,7 @@ module.exports = {
   },
 
   updateSpot: async (spotId, spot) => {
+    console.log(spot);
     const {
       spot_id
     } = spot;
