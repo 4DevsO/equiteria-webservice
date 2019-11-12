@@ -6,13 +6,15 @@ const { multerImg } = require('../middlewares/multer');
 const OilSpotRoute = require('../controllers/oilSpotController');
 const UserRoute = require('../controllers/userController');
 
+const imgsUpload = multerImg.array('img');
+
 route.get('/', (req, res) => {
   res.json({ success: true });
 });
 
 route.get('/oilSpot', OilSpotRoute.list);
 route.get('/oilSpot/:oilSpotId', OilSpotRoute.index);
-route.post('/oilSpotPhoto', multerImg.array('img'), OilSpotRoute.storePhoto);
+route.post('/oilSpotPhoto', imgsUpload, OilSpotRoute.storePhoto);
 route.post('/oilSpot', OilSpotRoute.store);
 route.put('/oilSpot/:oilSpotId', OilSpotRoute.update);
 route.delete('/oilSpot/:oilSpotId', OilSpotRoute.delete);

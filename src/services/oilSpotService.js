@@ -49,16 +49,16 @@ module.exports = {
 
   updateSpot: async (spotId, spot) => {
     const {
-      spot_id,
-      location: { latitude, longitude }
+      spot_id
     } = spot;
 
     if (spot_id && spot_id !== spotId) {
       throw new Error(`You can't change the id`);
     }
     if (spot.location) {
-      spot.location = { type: 'Point', coordinates: [longitude, latitude] };
+      spot.location = { type: 'Point', coordinates: [spot.location.longitude, spot.location.latitude] };
     }
+
     try {
       const updatedSpot = await OilSpot.findOneAndUpdate({ spot_id: spotId }, spot, { new: true });
       if (!updatedSpot) {

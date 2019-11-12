@@ -7,7 +7,7 @@ exports.compressImage = async (imagesData) => {
 
   try {
     for (const [, image] of Object.entries(imagesData)) {
-      await sharp(image.path).resize(25).jpeg({ quality: 70 }).withMetadata().toFile(path.resolve(image.destination, 'resized', image.filename));
+      await sharp(image.path).jpeg({ quality: 70 }).withMetadata().toFile(path.resolve(image.destination, 'resized', image.filename));
       fs.unlinkSync(image.path);
       imagesName.push(image.filename);
     };
