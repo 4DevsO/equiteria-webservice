@@ -4,6 +4,7 @@ const compression = require('compression');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
+const morgan = require('morgan');
 
 const apiAuth = require('./middlewares/apiAuth');
 const { catchAll, notFound } = require('./middlewares/error');
@@ -36,6 +37,7 @@ app.use(compression());
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(morgan('dev'));
 
 // add routes
 app.use('/api/v1', apiAuth(), require('./routes'));
