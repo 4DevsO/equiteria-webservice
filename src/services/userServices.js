@@ -29,7 +29,6 @@ module.exports = {
 
   updateUser: async (userId, user) => {
     const { _id } = user;
-    console.log(_id);
     if (_id && _id !== userId) {
       throw new Error(`You can't change the id`);
     }

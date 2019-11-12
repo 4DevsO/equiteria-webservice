@@ -52,7 +52,6 @@ module.exports = {
   },
 
   updateSpot: async (spotId, spot) => {
-    console.log(spot);
     const {
       spot_id
     } = spot;
