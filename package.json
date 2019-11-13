@@ -13,7 +13,8 @@
     "url": "git+https://github.com/4DevsO/equiteria-webservice.git"
   },
   "authors": [
-    "Matheus Almeida <mat.almeida@live.com>"
+    "Matheus Almeida <mat.almeida@live.com>",
+    "Alexandre Pedrecal <pedrecalc@gmail.com>"
   ],
   "license": "MIT",
   "bugs": {
